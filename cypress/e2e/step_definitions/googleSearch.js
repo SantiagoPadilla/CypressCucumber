@@ -15,13 +15,13 @@ When("you search the word {string}", (searchText) => {
 Then("you validate that the search results are less than {string}", (num) => {
     HomeGooglePage.getTextResult().then((text) => {
         let isLessThan = BigInt(text.split(" ")[1].replaceAll(".", "")) < BigInt(num)
-        expect(isLessThan, "It failed becouse the result of searched word is bigger than " + num).to.be.true
+        expect(isLessThan).to.be.true
     })
 })
 
 Then("you validate that the search results are more than {string}", (num) => {
     HomeGooglePage.getTextResult().then((text) => {
         let isBiggerThan = BigInt(text.split(" ")[1].replaceAll(".", "")) > BigInt(num)
-        expect(isBiggerThan, "It failed becouse the result of searched word is lower than " + num).to.be.true
+        expect(isBiggerThan).to.be.true
     })
 })
